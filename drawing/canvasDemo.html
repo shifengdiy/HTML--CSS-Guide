@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas绘图</title>
+	<style type="text/css" media="screen">
+		.can_1 {/*width: 500px;height: 500px;*/border: 1px solid rgba(0,0,0,0.6);margin: 20px auto;margin-left: calc(50% - 250px);vertical-align: middle;}
+		img {width: 300px;border: 2px solid #e5e5e5;display: block;margin: 0 auto;}
+		canvas {border: 1px solid #333;}
+	</style>
+</head>
+<body>
+	<canvas class="can_1" id="cvs_1" width="500" height="500">
+
+	</canvas>
+	<canvas class="can_2" width="500" height="500"></canvas>
+	<img id="dog" src="../img/1.jpg" alt="">
+<script>
+	var cvs = document.getElementById("cvs_1");
+	console.log(cvs);
+	var ctx = cvs.getContext("2d");
+	console.log(ctx);
+	ctx.moveTo(0,0);
+	ctx.lineTo(500,500);
+	ctx.stroke();
+	//ctx.fillStyle="rgba(255,0,0,0.7)";
+	
+	// ctx.beginPath();
+	// ctx.arc(95,50,40,0,1*Math.PI);
+	// ctx.stroke()
+	ctx.font = '30px Arial';
+	ctx.fillText('Hello World',30,30);
+	ctx.strokeText("Hello World",30,70);
+	var grad = ctx.createLinearGradient(300,400,500,500);
+	var text = ctx.createLinearGradient(0,0,70,70);
+	text.addColorStop(1,"#DE2525");
+	text.addColorStop(0,"#4da1d9");
+	grad.addColorStop(1,"#DE2525");
+	grad.addColorStop(0,"#4da1d9");
+	ctx.fillStyle =grad;
+	ctx.fillRect(300,300,500,500);
+</script>
+</body>
+</html>
